@@ -28,10 +28,12 @@ public class Main {
         Question nineteen = new Question("What is 9+10?", "19");
         Question twenty = new Question("What is 10+10?", "20");
 
+        System.out.print(create.generateQ()+ "\n");
 
         System.out.print("\nComplete!");
 
     }
+
 
 }
 
