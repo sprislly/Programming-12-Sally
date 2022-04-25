@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f784c831-88c9-40a6-a4c2-d14bd716aa58" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inheritance Sally/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inheritance Sally/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Inheritance Sally/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1 Sally/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1 Sally/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1 Sally/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1 Sally/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Review Program Sally/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Review Program Sally/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Review Program Sally/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Review Program Sally/out/production/Review Program Sally/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Review Program Sally/out/production/Review Program Sally/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Review Program Sally/out/production/Review Program Sally/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/Review Program Sally/out/production/Review Program Sally/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Review Program Sally/out/production/Review Program Sally/Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/Review Program Sally/out/production/Review Program Sally/Quiz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module1Sally/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module1Sally/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module1Sally/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module1Sally/.idea/vcs.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +93,7 @@
       <workItem from="1650855384939" duration="542000" />
       <workItem from="1650856741139" duration="6000" />
       <workItem from="1650856825015" duration="18000" />
+      <workItem from="1650860276483" duration="25000" />
     </task>
     <servers />
   </component>
