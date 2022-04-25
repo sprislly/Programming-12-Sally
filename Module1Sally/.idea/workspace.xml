@@ -4,18 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ce22b90-2bb5-4ca6-a30f-c71c66304eb4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Module1Sally/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review Program Sally/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Review Program Sally/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review Program Sally/Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Review Program Sally/Quiz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quiz.java" afterDir="false" />
+    <list default="true" id="9e189dae-21bb-4479-af05-4053810ef4c7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Review Program Sally/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Review Program Sally/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Review Program Sally/out/production/Review Program Sally/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Review Program Sally/out/production/Review Program Sally/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Review Program Sally/out/production/Review Program Sally/Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Review Program Sally/out/production/Review Program Sally/Quiz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Review Program Sally/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Review Program Sally/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Review Program Sally/src/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Review Program Sally/src/Quiz.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -23,16 +31,12 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectId" id="28Gwnou0f5QQ6as74q2QtR3HKRQ" />
+  <component name="ProjectId" id="28GxmZxiCMKSJLTNQPlAodDekdo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
@@ -49,25 +53,15 @@
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Review Program Sally" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5ce22b90-2bb5-4ca6-a30f-c71c66304eb4" name="Changes" comment="" />
-      <created>1650856404345</created>
+      <changelist id="9e189dae-21bb-4479-af05-4053810ef4c7" name="Changes" comment="" />
+      <created>1650856886616</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1650856404345</updated>
-      <workItem from="1650856405947" duration="159000" />
-      <workItem from="1650860269563" duration="2686000" />
+      <updated>1650856886616</updated>
+      <workItem from="1650856887853" duration="3557000" />
     </task>
     <servers />
   </component>

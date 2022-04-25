@@ -1,11 +1,15 @@
-
+import java.util.ArrayList;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        Scanner enter = new Scanner(System.in);
         System.out.println("Welcome to the Java study aid.");
-        Quiz create = new Quiz(10);
-        int length = create.l;
-        System.out.println("The quiz will have " + length + " questions.");
-        System.out.println("Press enter to reveal the answers.");
+
+        Quiz create = new Quiz(20);
+        int quizLength;
+        quizLength = create.generateQuiz();
+        System.out.println("The quiz will have " + quizLength + " questions.");
+        System.out.println("Press enter to reveal the answers.\n");
 
         Question one = new Question("What is 0+1?", "1");
         Question two = new Question("What is 1+1?", "2");
@@ -28,12 +32,60 @@ public class Main {
         Question nineteen = new Question("What is 9+10?", "19");
         Question twenty = new Question("What is 10+10?", "20");
 
-        System.out.print(create.generateQ()+ "\n");
+        ArrayList<String> q = new ArrayList<>();
+        ArrayList<String> a = new ArrayList<>();
 
-        System.out.print("\nComplete!");
+        q.add(one.q);
+        a.add(one.a);
+        q.add(two.q);
+        a.add(two.a);
+        q.add(three.q);
+        a.add(three.a);
+        q.add(four.q);
+        a.add(four.a);
+        q.add(five.q);
+        a.add(five.a);
+        q.add(six.q);
+        a.add(six.a);
+        q.add(seven.q);
+        a.add(seven.a);
+        q.add(eight.q);
+        a.add(eight.a);
+        q.add(nine.q);
+        a.add(nine.a);
+        q.add(ten.q);
+        a.add(ten.a);
+        q.add(eleven.q);
+        a.add(eleven.a);
+        q.add(twelve.q);
+        a.add(twelve.a);
+        q.add(thirteen.q);
+        a.add(thirteen.a);
+        q.add(fourteen.q);
+        a.add(fourteen.a);
+        q.add(fifteen.q);
+        a.add(fifteen.a);
+        q.add(sixteen.q);
+        a.add(sixteen.a);
+        q.add(seventeen.q);
+        a.add(seventeen.a);
+        q.add(eighteen.q);
+        a.add(eighteen.a);
+        q.add(nineteen.q);
+        a.add(nineteen.a);
+        q.add(twenty.q);
+        a.add(twenty.a);
+
+        for (int i = 1; i <= quizLength; i++) {
+            int num = create.generateQ();
+            System.out.println("Question " + i + ": " + q.get(num));
+            enter.nextLine();
+            System.out.println("The answer is " + a.get(num) + ".\n");
+
+        }
+
+        System.out.print("Complete!");
 
     }
-
-
 }
 
