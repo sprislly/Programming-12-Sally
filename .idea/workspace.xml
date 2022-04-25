@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f784c831-88c9-40a6-a4c2-d14bd716aa58" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inheritance Sally/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inheritance Sally/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Inheritance Sally/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1 Sally/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1 Sally/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1 Sally/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1 Sally/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Review Program Sally/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Review Program Sally/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Review Program Sally/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Review Program Sally/out/production/Review Program Sally/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Review Program Sally/out/production/Review Program Sally/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Review Program Sally/out/production/Review Program Sally/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/Review Program Sally/out/production/Review Program Sally/Question.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Review Program Sally/out/production/Review Program Sally/Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/Review Program Sally/out/production/Review Program Sally/Quiz.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,18 +41,22 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="jdk.selected.JAVA_MODULE" value="openjdk-17" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\930529\Documents\GitHub\Programming-12-Sally\Fibonacci Recursive Sally" />
@@ -49,6 +66,19 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Fibonacci Recursive Sally" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Programming-12-Sally" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Programming-12-Sally" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -68,6 +98,9 @@
       <option name="presentableId" value="Default" />
       <updated>1650487670605</updated>
       <workItem from="1650487672321" duration="385000" />
+      <workItem from="1650855384939" duration="542000" />
+      <workItem from="1650856741139" duration="6000" />
+      <workItem from="1650856825015" duration="18000" />
     </task>
     <servers />
   </component>
