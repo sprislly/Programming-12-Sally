@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="48aa00d4-2be2-4462-b0ae-335bcc772007" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 1 Sally/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 1 Sally/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 1 Sally/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 1 Sally/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Review Program Sally/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Review Program Sally/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Review Program Sally/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Deck of Cards Sally/src/Collections.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Deck of Cards Sally/src/FaceCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Deck of Cards Sally/src/FaceCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Deck of Cards Sally/src/Number.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Deck of Cards Sally/src/Number.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Fibonacci Recursive Sally/out/production/Fibonacci Recursive Sally/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GasPlanet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GasPlanet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Moon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Moon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Planet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Planet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RockPlanet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RockPlanet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Review Program Sally/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Review Program Sally/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Review Program Sally/out/production/Review Program Sally/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Review Program Sally/out/production/Review Program Sally/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Review Program Sally/out/production/Review Program Sally/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Review Program Sally/out/production/Review Program Sally/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Review Program Sally/out/production/Review Program Sally/Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Review Program Sally/out/production/Review Program Sally/Quiz.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -27,22 +38,28 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="28GwcPpKsVUuVhoeDCsYvxevJKi" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,10 +70,22 @@
       <updated>1650856310951</updated>
       <workItem from="1650856313725" duration="91000" />
       <workItem from="1650856840888" duration="46000" />
+      <workItem from="1651006247311" duration="2269000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5ce22b90-2bb5-4ca6-a30f-c71c66304eb4" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../Module1Sally/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Fibonacci Recursive Sally/out/production/Fibonacci Recursive Sally/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Review Program Sally/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Review Program Sally/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review Program Sally/Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Review Program Sally/Quiz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quiz.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1650856404345</updated>
       <workItem from="1650856405947" duration="159000" />
-      <workItem from="1650860269563" duration="2686000" />
+      <workItem from="1650860269563" duration="3214000" />
     </task>
     <servers />
   </component>

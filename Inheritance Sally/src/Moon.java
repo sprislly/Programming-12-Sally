@@ -31,4 +31,25 @@ public class Moon {
         return orbitTime;
     }
 
+    public void setOrbitTime(int orbitTime) {
+        this.orbitTime = orbitTime;
+    }
+
+    public boolean isAtmosphere() {
+        return atmosphere;
+    }
+
+    public void setAtmosphere(boolean atmosphere) {
+        this.atmosphere = atmosphere;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
