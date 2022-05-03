@@ -27,11 +27,17 @@ public class Planet {
         this.orbitTime = orbitTime;
     }
 
-    
+    public void addMoon(Moon moon) {
+        moons.add(moon);
+    }
     public ArrayList<Moon> getMoons() {
         return moons;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
     @Override
     public String toString() {
         return "Planet{" +
@@ -40,4 +46,5 @@ public class Planet {
                 ", moons=" + moons +
                 '}';
     }
+
 }

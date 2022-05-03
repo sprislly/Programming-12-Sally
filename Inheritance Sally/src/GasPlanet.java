@@ -2,7 +2,10 @@ public class GasPlanet extends Planet{
     boolean hasRings;
     Color color;
     GasPlanet(int orbitTime, String designation, boolean hasRings, Color color){
-
+        this.orbitTime = orbitTime;
+        this.designation = designation;
+        this.hasRings = hasRings;
+        this.color = color;
     }
 
     public boolean isHasRings() {
@@ -18,7 +21,7 @@ public class GasPlanet extends Planet{
     }
 
     public void setColor(Color color) {
-        color = color;
+        this.color = color;
     }
 
     @Override
