@@ -13,13 +13,21 @@ abstract class TwoDShape {
 
     }
 
-    public abstract double getArea(){
-        return width * height;
-
-    }
+    public abstract double getArea();
 
     public void setHeight(double height){
-
+        this.height = height;
     }
 
+    public double getHeight() {
+        return height;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getWidth() {
+        return width;
+    }
 }

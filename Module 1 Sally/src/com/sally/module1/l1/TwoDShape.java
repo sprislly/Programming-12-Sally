@@ -18,7 +18,7 @@ public class TwoDShape {
     }
 
     public void setHeight(double height){
-
+        this.height = height;
     }
 
 }

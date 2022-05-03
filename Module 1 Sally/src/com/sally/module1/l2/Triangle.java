@@ -1,17 +1,19 @@
 package com.sally.module1.l2;
 
-import com.sally.module1.l1.TwoDShape;
 class Triangle extends TwoDShape {
     double side1;
     double side2;
     double side3;
 
     public Triangle(double width, double height){
-
+        this.width = width;
+        this.height = height;
     }
 
     public Triangle(double side1, double side2, double side3){
-
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
     }
 
     private double heronsHeight(){
@@ -23,8 +25,12 @@ class Triangle extends TwoDShape {
         return h;
     }
 
-    abstract double getArea(){
+    public double getArea(){
         return width * height /2;
     }
 
+    @Override
+    public String toString() {
+        return "Triangle, " + "Base: " + width + ", Height: " + height + ", Area: " + getArea() + ".";
+    }
 }

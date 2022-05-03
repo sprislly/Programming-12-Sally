@@ -1,16 +1,20 @@
 package com.sally.module1.l2;
-
-abstract class Circle extends TwoDShape{
-    public final double PI;
+import java.lang.Math;
+public class Circle extends TwoDShape{
+    public final double PI = Math.PI;
     private double radius;
 
     Circle(double radius){
         this.radius = radius;
     }
 
-    public double getArea(){
-
+    @Override
+    public double getArea() {
+        return PI * radius * radius;
     }
 
-
+    @Override
+    public String toString() {
+        return "Circle, " + "Radius: " + radius + ", Area: " + getArea() + ".";
+    }
 }
