@@ -1,6 +1,6 @@
 package com.sally.module1.l3;
 
-class Triangle extends TwoDShape {
+class Triangle extends TwoDShape implements Rotate {
     double side1;
     double side2;
     double side3;
@@ -32,5 +32,21 @@ class Triangle extends TwoDShape {
     @Override
     public String toString() {
         return "Triangle, " + "Base: " + width + ", Height: " + height + ", Area: " + getArea() + ".";
+    }
+
+    int d = 0;
+    @Override
+    public void rotate90() {
+        d += 90;
+    }
+
+    @Override
+    public void rotate180() {
+        d += 180;
+    }
+
+    @Override
+    public void rotate(double degree) {
+        d += degree;
     }
 }
