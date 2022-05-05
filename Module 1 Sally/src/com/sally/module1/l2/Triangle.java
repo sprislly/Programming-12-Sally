@@ -17,11 +17,9 @@ class Triangle extends TwoDShape {
     }
 
     private double heronsHeight(){
-        double area;
-        double h;
         double s = side1 + side2 + side3;
-        area = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
-        h = area * 2 / side2;
+        double area = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+        double h = area * 2 / side2;
         return h;
     }
 
