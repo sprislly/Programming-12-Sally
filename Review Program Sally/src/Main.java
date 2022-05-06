@@ -78,7 +78,7 @@ public class Main {
 
         for (int i = 1; i <= quizLength; i++) {
             int num = create.generateQ();
-            System.out.println("Question " + i + ": " + q.get(num));
+            System.out.print("Question " + i + ": " + q.get(num));
             enter.nextLine();
             System.out.println("The answer is " + a.get(num) + ".\n");
 
