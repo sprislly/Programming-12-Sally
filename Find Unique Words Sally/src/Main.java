@@ -21,7 +21,7 @@ public class Main {
             [^a-zA-Z0-9] specifies all characters except numbers and letter.
                 For example, - , . and ; are all replaced.
              */
-            unique.add(scanner.next().replaceAll("[^a-zA-Z0-9]", ""));
+            unique.add(scanner.next().replaceAll("[^a-zA-Z0-9]", "").toLowerCase());
 
         }
 
