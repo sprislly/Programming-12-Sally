@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ce22b90-2bb5-4ca6-a30f-c71c66304eb4" name="Changes" comment="" />
+    <list default="true" id="5ce22b90-2bb5-4ca6-a30f-c71c66304eb4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Deck of Cards Sally/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Deck of Cards Sally/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Deck of Cards Sally/out/production/Deck of Cards Sally/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Deck of Cards Sally/out/production/Deck of Cards Sally/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Deck of Cards Sally/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Deck of Cards Sally/src/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Deck of Cards Sally/src/FaceCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Deck of Cards Sally/src/FaceCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Deck of Cards Sally/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Deck of Cards Sally/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Review Program Sally/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Review Program Sally/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Review Program Sally/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Review Program Sally/Question.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Review Program Sally/Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Review Program Sally/Quiz.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,20 +39,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -62,6 +65,8 @@
       <workItem from="1650856405947" duration="159000" />
       <workItem from="1650860269563" duration="3214000" />
       <workItem from="1651797966040" duration="105000" />
+      <workItem from="1652820480814" duration="58000" />
+      <workItem from="1652821462478" duration="121000" />
     </task>
     <servers />
   </component>

@@ -4,6 +4,7 @@ public class FaceCard extends Card{
         super(suit, number);
     }
 
+
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Card){

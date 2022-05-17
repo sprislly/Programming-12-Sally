@@ -1,5 +1,3 @@
-
-
 abstract class Card {
 //hash code
     String suit;

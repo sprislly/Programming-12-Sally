@@ -13,7 +13,7 @@ public class Main {
         FaceCard cK = new FaceCard("Clover", 13);
 
         LinkedList<Card> deck = new LinkedList<>();
-        System.out.println();
+        System.out.println(cJ);
 
         Scanner in = new Scanner(System.in);
         System.out.println("How many cards would you like in your hand?");
