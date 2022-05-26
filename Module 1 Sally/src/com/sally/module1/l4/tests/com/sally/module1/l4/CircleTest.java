@@ -17,7 +17,7 @@ public class CircleTest {
     Circle circle;
     @Before
     public void setUp() {
-        circle = new Circle(1);
+        circle = new Circle(32);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class CircleTest {
         //0
         //-1
         //1
-        Assert.assertEquals(1 * 1 * PI, circle.getArea(), 0.1);
+        Assert.assertEquals(32 * 32 * PI, circle.getArea(), 0.1);
     }
 
 

@@ -31,7 +31,7 @@ class Triangle extends TwoDShape implements Rotate {
      * Herons Height Formula.
      * @return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3)) * 2 / side2.
      */
-    double heronsHeight(){
+     double heronsHeight(){
         double h;
         double s = side1 + side2 + side3;
         double area = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));

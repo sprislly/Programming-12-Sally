@@ -4,8 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static java.lang.Math.PI;
-import static org.junit.Assert.*;
+
 
 public class TriangleTest {
     //partition
@@ -33,7 +32,7 @@ public class TriangleTest {
         //56 * 0
         //-1 * 65
         //32 * 1
-        Assert.assertEquals(32 * 56, lw.getArea(), 0.1);
+        Assert.assertEquals(32 * 56 / 2, lw.getArea(), 0.1);
     }
 
     @Test
