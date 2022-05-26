@@ -18,10 +18,12 @@ public class TriangleTest {
     length or width = -1, 0, 1
      */
 
-    Triangle triangle;
+    Triangle lw;
+    Triangle sides;
     @Before
     public void setUp() {
-        triangle = new Triangle(32, 56);
+        lw = new Triangle(32, 56);
+        sides = new Triangle(32, 56, 65);
     }
 
     @Test
@@ -31,7 +33,17 @@ public class TriangleTest {
         //56 * 0
         //-1 * 65
         //32 * 1
-        Assert.assertEquals(32 * 56, triangle.getArea(), 0.1);
+        Assert.assertEquals(32 * 56, lw.getArea(), 0.1);
+    }
+
+    @Test
+    public void heronsHeight() {
+        //32 + 56 + 65
+        //-32 + 56 + 65
+        //32 + 0 + 65
+        //32 + 56 + 1
+        //32 + -1 + 65
+        Assert.assertEquals(Math.sqrt((32 + 56 + 65) * ((32 + 56 + 65) - 32) * ((32 + 56 + 65) - 56) * ((32 + 56 + 65) - 65)) * 2 / 56, sides.heronsHeight(), 0.1);
     }
 
 
