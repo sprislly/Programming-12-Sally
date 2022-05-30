@@ -17,32 +17,60 @@ public class TriangleTest {
     length or width = -1, 0, 1
      */
 
-    Triangle lw;
-    Triangle sides;
+    Triangle lwPositive;
+    Triangle wNegative;
+    Triangle wZero;
+    Triangle lNegative;
+    Triangle wOne;
+
+    Triangle sidesPositive;
+    Triangle side1Negative;
+    Triangle side2Zero;
+    Triangle side3One;
+    Triangle side2Negative;
+
+
     @Before
     public void setUp() {
-        lw = new Triangle(32, 56);
-        sides = new Triangle(32, 56, 65);
+        lwPositive = new Triangle(32, 56);
+        wNegative = new Triangle(65, -32);
+        wZero = new Triangle(56, 0);
+        lNegative = new Triangle(-1, 65);
+        wOne = new Triangle(32, 1);
+
+        sidesPositive = new Triangle(32, 56, 65);
+        side1Negative = new Triangle(32, 56, -65);
+        side2Zero = new Triangle(32, 0, 65);
+        side3One = new Triangle(32, 56, 1);
+        side2Negative = new Triangle(32, -1, 65);
     }
 
     @Test
     public void getArea() {
         //32 * 56
+        Assert.assertEquals(32 * 56 / 2, lwPositive.getArea(), 0.5);
         //65 * -32
+        Assert.assertEquals(65 * (-32) / 2, wNegative.getArea(), 0.5);
         //56 * 0
+        Assert.assertEquals(56 * 0 / 2, wZero.getArea(), 0.5);
         //-1 * 65
+        Assert.assertEquals((-1) * 65 / 2, lNegative.getArea(), 0.5);
         //32 * 1
-        Assert.assertEquals(32 * 56 / 2, lw.getArea(), 0.1);
+        Assert.assertEquals(32 * 1 / 2, wOne.getArea(), 0.5);
     }
 
     @Test
     public void heronsHeight() {
         //32 + 56 + 65
-        //-32 + 56 + 65
+        Assert.assertEquals(Math.sqrt((32 + 56 + 65) * ((32 + 56 + 65) - 32) * ((32 + 56 + 65) - 56) * ((32 + 56 + 65) - 65)) * 2 / 56, sidesPositive.heronsHeight(), 0.1);
+        //32 + 56 + -65
+        Assert.assertEquals(Math.sqrt((32 + 56 - 65) * ((32 + 56 - 65) - 32) * ((32 + 56 - 65) - 56) * ((32 + 56 - 65) + 65)) * 2 / 56, side1Negative.heronsHeight(), 0.1);
         //32 + 0 + 65
+        Assert.assertEquals(Math.sqrt((32 + 0 + 65) * ((32 + 0 + 65) - 32) * ((32 + 0 + 65) - 0) * ((32 + 0 + 65) - 65)) * 2 / 0, side2Zero.heronsHeight(), 0.1);
         //32 + 56 + 1
+        Assert.assertEquals(Math.sqrt((32 + 56 + 1) * ((32 + 56 + 1) - 32) * ((32 + 56 + 1) - 56) * ((32 + 56 + 1) - 1)) * 2 / 56, side3One.heronsHeight(), 0.1);
         //32 + -1 + 65
-        Assert.assertEquals(Math.sqrt((32 + 56 + 65) * ((32 + 56 + 65) - 32) * ((32 + 56 + 65) - 56) * ((32 + 56 + 65) - 65)) * 2 / 56, sides.heronsHeight(), 0.1);
+        Assert.assertEquals(Math.sqrt((32 - 1 + 65) * ((32 - 1 + 65) - 32) * ((32 - 1 + 65) + 1) * ((32 - 1 + 65) - 65)) * 2 / (-1), side2Negative.heronsHeight(), 0.1);
     }
 
 

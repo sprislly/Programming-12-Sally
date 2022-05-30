@@ -1,14 +1,16 @@
 abstract class Card {
 //hash code
-    String suit;
+    int type;
     int number;
-    String name;
+    Face face;
+    Suit suit;
 
     public Card(){
     }
 
-    Card(String suit, int number){
-        this.suit = suit;
+
+    Card(int type, int number){
+        this.type = type;
         this.number = number;
     }
 
@@ -16,20 +18,36 @@ abstract class Card {
         if (number == 1) {
             return "Ace";
         }
-        if (number == 11) {
+        if (face == Face.JACK) {
             return "Jack";
         }
-        if (number == 12) {
+        if (face == Face.QUEEN) {
             return "Queen";
         }
-        if (number == 13) {
+        if (face == Face.KING) {
             return "King";
         }
         return String.valueOf(number);
     }
+    public String getSuit() {
+        if (suit == Suit.CLUBS) {
+            return "Clubs";
+        }
+        if (suit == Suit.SPADES) {
+            return "Spades";
+        }
+        if (suit == Suit.HEARTS) {
+            return "Hearts";
+        }
+        if (suit == Suit.DIAMONDS) {
+            return "Diamonds";
+        }
+        return "";
+    }
+
 
     @Override
     public String toString() {
-        return getName() + " of " + suit;
+        return getName() + " of " + getSuit();
     }
 }
