@@ -3,7 +3,7 @@ import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Make a deck of cards.");
+        System.out.println("Create a deck of cards.");
         LinkedList<Card> deck = new LinkedList<>();
 
         for (int i = 0; i < 13; i++) {
@@ -21,26 +21,29 @@ public class Main {
             }
         }
 
-        Collections.sort(deck);
-        Iterator<Card> ranking = deck.iterator();
-        while(ranking.hasNext()) {
-            System.out.println(ranking.next());
+        int numCards = 0;
+        CustomComparator c = new CustomComparator();
+        Collections.sort(deck,c);
+        Iterator<Card> rankedDeck = deck.iterator();
+        while (rankedDeck.hasNext()) {
+            System.out.println(rankedDeck.next());
+            numCards++;
         }
 
+        System.out.println("There are "+ numCards + " cards in the deck.");
 
-        /*
-
+        Collections.shuffle(deck);
         Scanner in = new Scanner(System.in);
-        System.out.println("How many cards would you like in your hand?");
-        int hand = in.nextInt();
+        System.out.println("\nHow many cards would you like in your hand?");
+        int amt = in.nextInt();
         in.nextLine();
 
-
-        For(int i = 0; i < hand; i++){
-
-            System.out.println();
+        System.out.println("\nYou have " + amt + " cards in your hand.");
+        Iterator<Card> newHand = deck.iterator();
+        for (int i = 0; i < amt; i++) {
+            System.out.println(newHand.next());
         }
-        */
+
 
 
 

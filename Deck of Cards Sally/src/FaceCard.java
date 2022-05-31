@@ -15,10 +15,10 @@ public class FaceCard extends Card{
             suit = Suit.SPADES;
         }
         if (type == 2) {
-            suit = Suit.CLUBS;
+            suit = Suit.HEARTS;
         }
         if (type == 3) {
-            suit = Suit.HEARTS;
+            suit = Suit.CLUBS;
         }
         if (type == 4) {
             suit = Suit.DIAMONDS;

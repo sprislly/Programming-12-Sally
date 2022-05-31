@@ -1,4 +1,4 @@
-abstract class Card implements Comparable<Card>{
+abstract class Card{
 //hash code
     int type;
     int num;
@@ -42,22 +42,6 @@ abstract class Card implements Comparable<Card>{
         return "";
     }
 
-    @Override
-    public int compareTo(Card o) {
-        if (o.suit == Suit.SPADES) {
-            return 2;
-        }
-        if (o.suit == Suit.HEARTS) {
-            return 1;
-        }
-        if (o.suit == Suit.CLUBS) {
-            return 0;
-        }
-        if (o.suit == Suit.DIAMONDS) {
-            return -1;
-        }
-        return -2;
-    }
 
     @Override
     public String toString() {
