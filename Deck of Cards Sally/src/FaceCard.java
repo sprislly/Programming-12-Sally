@@ -30,7 +30,7 @@ public class FaceCard extends Card{
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Card){
-            return number >= 11;
+            return num >= 11;
         }
         return false;
     }

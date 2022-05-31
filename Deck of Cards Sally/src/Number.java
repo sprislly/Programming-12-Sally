@@ -1,6 +1,5 @@
 public class Number extends Card{
 
-
     Number(int type, int num) {
         super(type, num);
         if (type == 1) {
@@ -20,7 +19,7 @@ public class Number extends Card{
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Card){
-            if(number <= 10) return true;
+            return num <= 10;
         }
         return false;
     }

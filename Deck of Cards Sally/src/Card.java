@@ -1,21 +1,18 @@
-abstract class Card {
+abstract class Card implements Comparable<Card>{
 //hash code
     int type;
-    int number;
+    int num;
     Face face;
     Suit suit;
 
-    public Card(){
-    }
 
-
-    Card(int type, int number){
+    Card(int type, int num){
         this.type = type;
-        this.number = number;
+        this.num = num;
     }
 
     public String getName() {
-        if (number == 1) {
+        if (num == 1) {
             return "Ace";
         }
         if (face == Face.JACK) {
@@ -27,7 +24,7 @@ abstract class Card {
         if (face == Face.KING) {
             return "King";
         }
-        return String.valueOf(number);
+        return String.valueOf(num);
     }
     public String getSuit() {
         if (suit == Suit.CLUBS) {
@@ -45,6 +42,22 @@ abstract class Card {
         return "";
     }
 
+    @Override
+    public int compareTo(Card o) {
+        if (o.suit == Suit.SPADES) {
+            return 2;
+        }
+        if (o.suit == Suit.HEARTS) {
+            return 1;
+        }
+        if (o.suit == Suit.CLUBS) {
+            return 0;
+        }
+        if (o.suit == Suit.DIAMONDS) {
+            return -1;
+        }
+        return -2;
+    }
 
     @Override
     public String toString() {

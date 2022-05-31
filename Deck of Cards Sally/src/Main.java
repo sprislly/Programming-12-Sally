@@ -1,5 +1,5 @@
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,15 +21,21 @@ public class Main {
             }
         }
 
-        System.out.println(deck);
+        Collections.sort(deck);
+        Iterator<Card> ranking = deck.iterator();
+        while(ranking.hasNext()) {
+            System.out.println(ranking.next());
+        }
 
+
+        /*
 
         Scanner in = new Scanner(System.in);
         System.out.println("How many cards would you like in your hand?");
         int hand = in.nextInt();
         in.nextLine();
 
-        /*
+
         For(int i = 0; i < hand; i++){
 
             System.out.println();
