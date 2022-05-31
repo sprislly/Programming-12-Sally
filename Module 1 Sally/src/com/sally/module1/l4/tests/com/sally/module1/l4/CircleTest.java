@@ -5,7 +5,7 @@ import org.junit.Test;
 import static java.lang.Math.PI;
 
 public class CircleTest {
-    //partition
+    //getArea() partition
     /*
     radius is positive
     radius is negative
