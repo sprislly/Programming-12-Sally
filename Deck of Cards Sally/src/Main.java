@@ -34,7 +34,7 @@ public class Main {
 
         Collections.shuffle(deck);
         Scanner in = new Scanner(System.in);
-        System.out.println("\nHow many cards would you like in your hand?");
+        System.out.println("\nDraw a hand.\nHow many cards would you like in your hand?");
         int amt = in.nextInt();
         in.nextLine();
 

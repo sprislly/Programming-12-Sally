@@ -1,4 +1,4 @@
-abstract class Card{
+abstract class Card {
 //hash code
     int type;
     int num;
@@ -41,6 +41,7 @@ abstract class Card{
         }
         return "";
     }
+
 
 
     @Override
