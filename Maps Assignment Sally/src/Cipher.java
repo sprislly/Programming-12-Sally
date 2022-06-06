@@ -12,7 +12,7 @@ public class Cipher {
     }
 
     HashMap<String, String> map = new HashMap<>();
-
+    map.put(message)
 
 
 
@@ -32,14 +32,6 @@ public class Cipher {
 
 
 }
-
-/*
-cipher
-bfs
-gridder
-files and databases
-FINAL PROJECT LIBRARY
- */
 
 
 
