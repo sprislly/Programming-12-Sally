@@ -9,12 +9,12 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         setupTree();
         BFS();
+
     }
 
 
     private static void BFS() {
         //Your code here.  Feel free to modify signature or add helper functions
-
 
     }
 
