@@ -40,16 +40,17 @@ public class CaesarCipher {
             return null;
         }
         //Eliminates any whitespace and non alpha char's.
-        message = message.trim();
-        message = message.replaceAll("\\W", "");
 
         //Makes sure that all the letters are uppercase.
         message = message.toLowerCase();
         for(int i = 0; i < message.length(); i++){
             char letter = message.charAt(i);
-            int lookUp = (charMap.get(letter) + key) % 26;
-            encryptedText += encryptionArr[lookUp];
-
+            if(charMap.get(letter) == null){
+                encryptedText += " ";
+            }else {
+                int lookUp = (charMap.get(letter) + key) % 26;
+                encryptedText += encryptionArr[lookUp];
+            }
         }
         return encryptedText;
     }
@@ -65,21 +66,21 @@ public class CaesarCipher {
             return null;
         }
         //Eliminates any whitespace and non alpha char's.
-        code = code.trim();
-        code = code.replaceAll("\\W", "");
-        if(code.contains(" ")){
-            code = code.replaceAll(" ", "");
-        }
+
         //Makes sure that all the letters are lowercase.
         code = code.toLowerCase();
         for(int i = 0; i < code.length(); i++){
             char letter = code.charAt(i);
-            int lookUp = (charMap.get(letter) - key) % 26;
-            //Returns a positive number on negative input.
-            if (lookUp < 0){
-                lookUp += 26;
+            if(charMap.get(letter) == null){
+                decryptedText += " ";
+            } else {
+                int lookUp = (charMap.get(letter) - key) % 26;
+                //Returns a positive number on negative input.
+                if (lookUp < 0) {
+                    lookUp += 26;
+                }
+                decryptedText += encryptionArr[lookUp];
             }
-            decryptedText += encryptionArr[lookUp];
         }
         return decryptedText;
     }
