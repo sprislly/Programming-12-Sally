@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.event.*;
 import flanagan.io.*;
 import java.awt.Image;
+import java.util.Random;
 
 
 public class Gridder extends javax.swing.JFrame 
@@ -678,14 +679,30 @@ public class Gridder extends javax.swing.JFrame
     }//GEN-LAST:event_jSliderDelayStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Random rand = new Random();
+        for (int i = 0; i < 100; i++) {
+            grid[rand.nextInt(gridCount)][rand.nextInt(gridCount)]=1;
+        }
         System.out.println("1");
         draw();
     }//GEN-LAST:event_jButton1ActionPerformed
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Random rand = new Random();
+        int column = rand.nextInt(gridCount);
+        for (int i = 0; i < 100; i++) {
+            grid[column][i]=1;
+        }
         System.out.println("2");
+        draw();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        clearGrid();
+        for (int i = 0; i < 50; i++) {
+            for (int n = 0; n < 100; n++) {
+                grid[n][i]=1;
+            }
+        }
         System.out.println("3");
         draw();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -693,13 +710,28 @@ public class Gridder extends javax.swing.JFrame
 
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        System.out.println("4");
+        int count = 0;
+        for (int i = 0; i < 100; i++) {
+            for (int n = 0; n < 100; n++) {
+                if (grid[n][i] == 1) {
+                    count++;
+                }
+            }
+        }
 
+        textInfo.setText(Integer.toString(count) );
+        System.out.println("4");
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         System.out.println("5");
-
+        clearGrid();
+        for (int i = 0; i < 100; i++) {
+            grid[i][i]=1;
+        }
+        for (int i = 0; i < 100; i++) {
+            grid[99-i][i]=1;
+        }
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
