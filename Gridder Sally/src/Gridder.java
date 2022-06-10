@@ -736,7 +736,15 @@ public class Gridder extends javax.swing.JFrame
     }//GEN-LAST:event_jButton11ActionPerformed
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         System.out.println("6");
-
+        for (int i = 0; i < 100; i++) {
+            for (int n = 0; n < 100; n++) {
+                if (grid[n][i] == 1) {
+                    grid[n][i]=0;
+                }else{
+                    grid[n][i]=1;
+                }
+            }
+        }
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
