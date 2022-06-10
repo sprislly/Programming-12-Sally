@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class CaesarCipher {
     private final HashMap<Character, Integer> charMap;
-    private final static char[] encryptionArr = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+    private final static char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
     public CaesarCipher(){
         charMap = new HashMap<>();
@@ -34,25 +34,23 @@ public class CaesarCipher {
         charMap.put('z', 25);
     }
     public String encrypt(String message, int key){
-        String encryptedText = "";
+        StringBuilder encryptedText = new StringBuilder();
         //Make sure the key is valid.
         if(key < 0 || key > 25 || message.length() <= 0){
             return null;
         }
-        //Eliminates any whitespace and non alpha char's.
 
-        //Makes sure that all the letters are uppercase.
         message = message.toLowerCase();
         for(int i = 0; i < message.length(); i++){
             char letter = message.charAt(i);
             if(charMap.get(letter) == null){
-                encryptedText += " ";
+                encryptedText.append(" ");
             }else {
                 int lookUp = (charMap.get(letter) + key) % 26;
-                encryptedText += encryptionArr[lookUp];
+                encryptedText.append(alphabet[lookUp]);
             }
         }
-        return encryptedText;
+        return encryptedText.toString();
     }
 
     /*
@@ -60,29 +58,26 @@ public class CaesarCipher {
      * Returns plain text or null if an error occurred.
      */
     public String decrypt(String code, int key){
-        String decryptedText = "";
-        //Make sure the key is valid.
+        StringBuilder decryptedText = new StringBuilder();
         if(key < 0 || key > 25){
             return null;
         }
-        //Eliminates any whitespace and non alpha char's.
 
-        //Makes sure that all the letters are lowercase.
         code = code.toLowerCase();
         for(int i = 0; i < code.length(); i++){
             char letter = code.charAt(i);
             if(charMap.get(letter) == null){
-                decryptedText += " ";
+                decryptedText.append(" ");
             } else {
                 int lookUp = (charMap.get(letter) - key) % 26;
                 //Returns a positive number on negative input.
                 if (lookUp < 0) {
                     lookUp += 26;
                 }
-                decryptedText += encryptionArr[lookUp];
+                decryptedText.append(alphabet[lookUp]);
             }
         }
-        return decryptedText;
+        return decryptedText.toString();
     }
 
 }
