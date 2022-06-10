@@ -1,14 +1,16 @@
 import java.util.HashMap;
 
 /* Caesar Cipher
-
+    Takes in a message and a key.
+    The methods of the function encrypt or decrypt the message based on the given shift.
+    Returns the new encrypted or decrypted string.
  */
 public class CaesarCipher {
     private final HashMap<Character, Integer> charMap;
     private final static char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
-    /* Constructor
-    Sets up a hashmap with each letter in the alphabet in order, and an integer key corresponding to the numbers place from 0 to 25.
+    /* Caesar Cipher Constructor
+    Sets up a hashmap that takes in characters for the letters and integers for the numbers order in the alphabet.
      */
     public CaesarCipher(){
         charMap = new HashMap<>();
@@ -42,7 +44,8 @@ public class CaesarCipher {
 
     /* Encrypt Caesar Cipher
      * Encrypts using the formula: (c(i) + k) mod 26.
-     * Returns plain text or null if an error occurred.
+     * @param message is the String being decrypted; requires String.
+     * @return encrypted string or null if an error occurred.
      */
     public String encrypt(String message, int key){
         StringBuilder encryptedText = new StringBuilder();
@@ -56,8 +59,8 @@ public class CaesarCipher {
             if(charMap.get(letter) == null){
                 encryptedText.append(" ");
             }else {
-                int lookUp = (charMap.get(letter) + key) % 26;
-                encryptedText.append(alphabet[lookUp]);
+                int find = (charMap.get(letter) + key) % 26;
+                encryptedText.append(alphabet[find]);
             }
         }
         return encryptedText.toString();
@@ -65,7 +68,8 @@ public class CaesarCipher {
 
     /* Decrypt Caesar Cipher
      * Decrypts using the formula: (c(i) – k) mod 26.
-     * Returns plain text or null if an error occurred.
+     * @param code is the String being decrypted; requires String.
+     * @return decrypted string or null if an error occurred.
      */
     public String decrypt(String code, int key){
         StringBuilder decryptedText = new StringBuilder();
@@ -79,12 +83,12 @@ public class CaesarCipher {
             if(charMap.get(letter) == null){
                 decryptedText.append(" ");
             } else {
-                int lookUp = (charMap.get(letter) - key) % 26;
+                int find = (charMap.get(letter) - key) % 26;
                 //Returns a positive number on negative input.
-                if (lookUp < 0) {
-                    lookUp += 26;
+                if (find < 0) {
+                    find += 26;
                 }
-                decryptedText.append(alphabet[lookUp]);
+                decryptedText.append(alphabet[find]);
             }
         }
         return decryptedText.toString();
