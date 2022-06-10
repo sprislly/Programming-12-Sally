@@ -1,9 +1,15 @@
 import java.util.HashMap;
 
+/* Caesar Cipher
+
+ */
 public class CaesarCipher {
     private final HashMap<Character, Integer> charMap;
     private final static char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
+    /* Constructor
+    Sets up a hashmap with each letter in the alphabet in order, and an integer key corresponding to the numbers place from 0 to 25.
+     */
     public CaesarCipher(){
         charMap = new HashMap<>();
         charMap.put('a', 0);
@@ -33,9 +39,13 @@ public class CaesarCipher {
         charMap.put('y', 24);
         charMap.put('z', 25);
     }
+
+    /* Encrypt Caesar Cipher
+     * Encrypts using the formula: (c(i) + k) mod 26.
+     * Returns plain text or null if an error occurred.
+     */
     public String encrypt(String message, int key){
         StringBuilder encryptedText = new StringBuilder();
-        //Make sure the key is valid.
         if(key < 0 || key > 25 || message.length() <= 0){
             return null;
         }
@@ -53,7 +63,7 @@ public class CaesarCipher {
         return encryptedText.toString();
     }
 
-    /*
+    /* Decrypt Caesar Cipher
      * Decrypts using the formula: (c(i) – k) mod 26.
      * Returns plain text or null if an error occurred.
      */
