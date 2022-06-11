@@ -10,24 +10,24 @@ import java.util.Random;
 public class Gridder extends javax.swing.JFrame 
                                         implements MouseListener, MouseMotionListener,
                                                             ActionListener {
-     
-    protected final int gridCount=100;  //how many squares wide our drawing area is
+
+    protected final int gridCount = 100;  //how many squares wide our drawing area is
     protected int[][] grid = new int[gridCount][gridCount]; //create the matrix         
-    private final int squareSize=5; //the size length of individual squares in pixels
-    private final int gridSize=gridCount*squareSize;  //size of entire draw grid in pixels
-    private final int offSet=50;  //how far from top/left edge do we draw the grid
+    private final int squareSize = 5; //the size length of individual squares in pixels
+    private final int gridSize = gridCount * squareSize;  //size of entire draw grid in pixels
+    private final int offSet = 50;  //how far from top/left edge do we draw the grid
     private int penColor = 1; //keeps track of current drawing color
     private Color[] colors; //our array of colors
     private Image ib;  //we do all drawing onto this image, it acts as an image buffer
     private Graphics ibg;  //will be set to our image buffer's graphic object
     private String filename;
-    
+
     private Timer timmy;
-    private boolean active=false;
+    private boolean active = false;
     private int stepDelay = 500;
-    private Color borderColor=new Color(20,20,20);
-    
-    
+    private Color borderColor = new Color(20, 20, 20);
+
+
     //constructor for our GridderFrame
     public Gridder() {
         initComponents();
@@ -40,140 +40,151 @@ public class Gridder extends javax.swing.JFrame
         draw();
     }
 
-    
+
     //set our image (buffer) to a new image of the correct size
-    public void setUpImageBuffer(){
-        ib=this.createImage(gridSize+1,gridSize+1);
-        ibg=ib.getGraphics();
+    public void setUpImageBuffer() {
+        ib = this.createImage(gridSize + 1, gridSize + 1);
+        ibg = ib.getGraphics();
     }
 
-    
+
     //experimental code that redraws the grid after user resizes the window
     //works some of the time... still in progress
-    public void takeCareOfResizing(){
-         this.addComponentListener(new ComponentAdapter() {
-           public void componentResized(ComponentEvent e) {
-              draw(); 
-           }  
-           public void componentMoved(ComponentEvent e) {
-              draw();
-           }
-         });
+    public void takeCareOfResizing() {
+        this.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                draw();
+            }
+
+            public void componentMoved(ComponentEvent e) {
+                draw();
+            }
+        });
     }
-    
-    public void setUpColors(){
-        colors=new Color[2];
-        colors[0]=Color.darkGray;  colors[1]=Color.white; 
-        
+
+    public void setUpColors() {
+        colors = new Color[2];
+        colors[0] = Color.darkGray;
+        colors[1] = Color.white;
+
     }
-    
-    
+
+
     //fills the grid with 1's (represents white!)
-    public void clearGrid(){
-        for(int c=0; c<gridCount; c++)
-            for(int r=0; r<gridCount; r++)
-                grid[c][r]=0;
-        
+    public void clearGrid() {
+        for (int c = 0; c < gridCount; c++)
+            for (int r = 0; r < gridCount; r++)
+                grid[c][r] = 0;
+
         draw();
-    } 
-    
-     
-    public void mousePressed(MouseEvent e) { }
-    public void mouseReleased(MouseEvent e) { }
-    public void mouseEntered(MouseEvent e) { }
-    public void mouseExited(MouseEvent e) {  }
-    
-    
+    }
+
+
+    public void mousePressed(MouseEvent e) {
+    }
+
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    public void mouseExited(MouseEvent e) {
+    }
+
+
     //will use the mouse x and y coordinates and figure out which square in the
     //draw area was clicked and pass this information to the clickGrid method
-    public void mouseClicked(MouseEvent e) { 
-        int x = e.getX(); int y = e.getY(); 
-        int row = (y-offSet)/squareSize;
-        int col = (x-offSet)/squareSize;
+    public void mouseClicked(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+        int row = (y - offSet) / squareSize;
+        int col = (x - offSet) / squareSize;
         System.out.println("Click: " + col + ", " + row);
         //if inside our grid, call clickGrid passing it the col and row
-        if ( (row>=0) && (row<gridCount) && (col>=0) && (col<gridCount) )
-           clickGrid(col, row);
+        if ((row >= 0) && (row < gridCount) && (col >= 0) && (col < gridCount))
+            clickGrid(col, row);
     }
-  
-    
+
+
     //will use the mouse x and y coordinates and figure out which square in the
     //draw area dragging is occurring and pass this information to the clickGrid method    
-    public void mouseDragged(MouseEvent e) { 
-      int x = e.getX(); int y = e.getY(); 
-      int row = (y-offSet )/squareSize;
-      int col = (x-offSet )/squareSize;
-      System.out.println("Drag:  " + col + ", " + row);
-      //if inside our grid, call dragGrid passint it the col and row
-      if ( (row>=0) && (row<gridCount) && (col>=0) && (col<gridCount) )
-         dragGrid(col, row);       
+    public void mouseDragged(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+        int row = (y - offSet) / squareSize;
+        int col = (x - offSet) / squareSize;
+        System.out.println("Drag:  " + col + ", " + row);
+        //if inside our grid, call dragGrid passint it the col and row
+        if ((row >= 0) && (row < gridCount) && (col >= 0) && (col < gridCount))
+            dragGrid(col, row);
     }
-    
-    public void mouseMoved(MouseEvent e) { 
+
+    public void mouseMoved(MouseEvent e) {
         //System.out.println("Moving at " + e.getX() + "," +  e.getY() );  
     }
-    
+
     //set a square in the grid to the color value as long as the values are valid
-    public void colorSquare(int col, int row, int colorValue){
+    public void colorSquare(int col, int row, int colorValue) {
         grid[col][row] = colorValue;
         draw();
     }
-    
-    
+
+
     //any mouse click is forwarded to this method with the col and row of the
     //square clicked provided as parameters.  Comes from public void mouseClicked.
-    public void clickGrid( int col, int row ){
-        colorSquare(col, row, penColor); 
+    public void clickGrid(int col, int row) {
+        colorSquare(col, row, penColor);
     }
-    
-    
+
+
     //any mouse drag is forwarded to this method with the col and row of the
     //square dragged over provided as parameters.  Comes from public void mouseDragged.
-    public void dragGrid( int col, int row) {
-        colorSquare(col, row, penColor);   
+    public void dragGrid(int col, int row) {
+        colorSquare(col, row, penColor);
     }
-    
-    
+
+
     //draws the image based on the values stored in the grid.
     //we will draw on the image buffer's graphics object and then when we are
     //all done we will copy the image buffer onto the Frame's graphic object.
-    public void draw(){
-        
+    public void draw() {
+
         //clear the area, draw white background
-        ibg.clearRect(0, 0, gridSize,gridSize);
+        ibg.clearRect(0, 0, gridSize, gridSize);
         ibg.setColor(Color.white);
         ibg.fillRect(0, 0, gridSize, gridSize);
-        
+
         //draws individual squares (pass this method the frames graphics object
         drawSquares(ibg);
-        
+
         //draws a black border around edge of grid
         ibg.setColor(Color.black);
-        ibg.drawRect(0,0,gridSize,gridSize);
-        
+        ibg.drawRect(0, 0, gridSize, gridSize);
+
         //all done drawing your stuff onto the image buffer?
         //get the frame's graphics object and draw our image buffer onto the frame
         Graphics g = this.getGraphics();
-        g.drawImage(ib,offSet,offSet,this);
+        g.drawImage(ib, offSet, offSet, this);
     }
-    
-    
+
+
     //draws the individual colored squares that make the grid using the values
     //stored in the grid matrix.
-    public void drawSquares(Graphics g){
-       //draw each square (remember that squareSize is size of each square...
-       g.setColor(Color.black);
-       for(int r=0; r<gridCount; r++){
-           for(int c=0; c<gridCount; c++) {
-               g.setColor(colors[ grid[c][r] ] );
-               g.fillRect(c*squareSize, r*squareSize, squareSize, squareSize);      
-               g.setColor(borderColor);
-               g.drawRect(c*squareSize, r*squareSize, squareSize, squareSize);
-           }
-       }
+    public void drawSquares(Graphics g) {
+        //draw each square (remember that squareSize is size of each square...
+        g.setColor(Color.black);
+        for (int r = 0; r < gridCount; r++) {
+            for (int c = 0; c < gridCount; c++) {
+                g.setColor(colors[grid[c][r]]);
+                g.fillRect(c * squareSize, r * squareSize, squareSize, squareSize);
+                g.setColor(borderColor);
+                g.drawRect(c * squareSize, r * squareSize, squareSize, squareSize);
+            }
+        }
     }
-    
-    
+
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -387,53 +398,53 @@ public class Gridder extends javax.swing.JFrame
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 10, Short.MAX_VALUE))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 10, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton10, jButton11, jButton12, jButton2, jButton3, jButton4, jButton5, jButton6, jButton7, jButton8, jButton9});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[]{jButton1, jButton10, jButton11, jButton12, jButton2, jButton3, jButton4, jButton5, jButton6, jButton7, jButton8, jButton9});
 
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton12)
-                .addGap(0, 9, Short.MAX_VALUE))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton12)
+                                .addGap(0, 9, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -442,157 +453,156 @@ public class Gridder extends javax.swing.JFrame
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSliderDelay, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(buttonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttonClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttonRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttonBlack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonStep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttonWhite, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonCopy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonPaste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttonOpen, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButtonRun, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jSliderDelay, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(buttonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(buttonClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(buttonRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(buttonBlack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(jButtonStep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(buttonWhite, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(jButtonCopy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(jButtonPaste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(buttonOpen, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(jButtonRun, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGap(28, 28, 28)
+                                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addGap(156, 156, 156)
+                                                .addComponent(jLabel1)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {buttonBlack, buttonClear, buttonOpen, buttonRefresh, buttonSave, buttonWhite, jButtonCopy, jButtonPaste, jButtonRun, jButtonStep});
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[]{buttonBlack, buttonClear, buttonOpen, buttonRefresh, buttonSave, buttonWhite, jButtonCopy, jButtonPaste, jButtonRun, jButtonStep});
 
         jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(buttonOpen, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(buttonClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonRefresh)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonCopy)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonPaste)
-                        .addGap(20, 20, 20)
-                        .addComponent(buttonBlack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonWhite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(jButtonStep)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonRun)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSliderDelay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addContainerGap(184, Short.MAX_VALUE))
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(buttonOpen, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(46, 46, 46)
+                                                .addComponent(buttonClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(buttonRefresh)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jButtonCopy)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jButtonPaste)
+                                                .addGap(20, 20, 20)
+                                                .addComponent(buttonBlack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(buttonWhite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(42, 42, 42)
+                                                .addComponent(jButtonStep)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButtonRun)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jSliderDelay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1)
+                                .addContainerGap(184, Short.MAX_VALUE))
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {buttonBlack, buttonWhite});
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[]{buttonBlack, buttonWhite});
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {buttonClear, buttonRefresh});
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[]{buttonClear, buttonRefresh});
 
         jScrollPane1.setViewportView(jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 930, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(textInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 930, Short.MAX_VALUE)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   
-       
+
     //saves the current picture data in CS format
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-      //String curDir = System.getProperty("user.dir");
-      //System.out.println("Your directory is " + curDir);
-      FileChooser FC = new FileChooser();
-      FC.selectFile();
-      filename=FC.getDirPath() +"/"+ FC.getFileName();
-      System.out.println("Filename: " + filename);
-      FC.close();
-      
-      FileOutput FO = new FileOutput(filename,"w");
-    
-      for(int r=0; r<gridCount; r++) {
-         for(int c=0; c<gridCount; c++) {
-             int num = grid[c][r];
-             if (num<10)
-                 FO.print("0"+num);
-             else
-                 FO.print(num);
-         }
-         FO.println(""); //go to new line
-      }
-      FO.close();
-        
+        //String curDir = System.getProperty("user.dir");
+        //System.out.println("Your directory is " + curDir);
+        FileChooser FC = new FileChooser();
+        FC.selectFile();
+        filename = FC.getDirPath() + "/" + FC.getFileName();
+        System.out.println("Filename: " + filename);
+        FC.close();
+
+        FileOutput FO = new FileOutput(filename, "w");
+
+        for (int r = 0; r < gridCount; r++) {
+            for (int c = 0; c < gridCount; c++) {
+                int num = grid[c][r];
+                if (num < 10)
+                    FO.print("0" + num);
+                else
+                    FO.print(num);
+            }
+            FO.println(""); //go to new line
+        }
+        FO.close();
+
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     //opens a CS format file and loads the image data into the grid
     private void buttonOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOpenActionPerformed
-      FileChooser FC = new FileChooser();
-      FC.selectFile();
-      filename=FC.getDirPath() +"/"+ FC.getFileName();
-      System.out.println(filename);
-      FC.close();
-      
-      FileInput FI = new FileInput(filename);
-      int num=FI.numberOfLines();
-      if (num!=gridCount){
-          System.out.println("Not enough lines in file!");
-          return;
-      }
-      
-      //read each row.  go through row two characters at a time and convert to number
-      for(int r=0; r<gridCount; r++) {
-          String line = FI.readLine();                         //read the next line
-          for(int c=0; c<gridCount; c++){                 //or (int c=0; c<gridCount*2; c=c+2)
-              String temp=line.substring(c*2, c*2+2);   //0,2,4,6,8,...
-              int value=Integer.parseInt(temp);           //convert to int
-              grid[c][r]=value;                                  //put in grid
-          }
-      }
-      FI.close();
-      
-      //lets see what you just read!
-      draw();
-      
+        FileChooser FC = new FileChooser();
+        FC.selectFile();
+        filename = FC.getDirPath() + "/" + FC.getFileName();
+        System.out.println(filename);
+        FC.close();
+
+        FileInput FI = new FileInput(filename);
+        int num = FI.numberOfLines();
+        if (num != gridCount) {
+            System.out.println("Not enough lines in file!");
+            return;
+        }
+
+        //read each row.  go through row two characters at a time and convert to number
+        for (int r = 0; r < gridCount; r++) {
+            String line = FI.readLine();                         //read the next line
+            for (int c = 0; c < gridCount; c++) {                 //or (int c=0; c<gridCount*2; c=c+2)
+                String temp = line.substring(c * 2, c * 2 + 2);   //0,2,4,6,8,...
+                int value = Integer.parseInt(temp);           //convert to int
+                grid[c][r] = value;                                  //put in grid
+            }
+        }
+        FI.close();
+
+        //lets see what you just read!
+        draw();
+
     }//GEN-LAST:event_buttonOpenActionPerformed
 
     //redraws the canvas when the picture disappears
@@ -606,39 +616,39 @@ public class Gridder extends javax.swing.JFrame
 
 
     private void buttonBlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBlackActionPerformed
-        penColor=0;
+        penColor = 0;
     }//GEN-LAST:event_buttonBlackActionPerformed
 
     private void buttonWhiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonWhiteActionPerformed
-        penColor=1;
+        penColor = 1;
     }//GEN-LAST:event_buttonWhiteActionPerformed
 
     public boolean isAlive(int c, int r) {
         //if cell is in grid and alive, return true
         //outside grid or not alive, return false
-        return(true);
+        return (true);
     }
-    
+
     private void jButtonStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStepActionPerformed
         step();
     }//GEN-LAST:event_jButtonStepActionPerformed
 
-    public int countNeighbors(int c, int r){
-       return(0);
+    public int countNeighbors(int c, int r) {
+        return (0);
     }
-    
+
     public void step() {
         //empty now
         //sample code, take this out!   randomly pick a spot to turn white
-        int col = (int)(Math.random()*gridCount);
-        int row = (int)(Math.random()*gridCount);
+        int col = (int) (Math.random() * gridCount);
+        int row = (int) (Math.random() * gridCount);
         grid[col][row] = 1;
-        
-        
+
+
         //leave this in here or you won't see anything happen!
         draw();
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         //this event is called by the timer...
@@ -646,23 +656,22 @@ public class Gridder extends javax.swing.JFrame
         //System.out.println(e.getSource());
         step();
     }
-    
+
     private void jButtonRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunActionPerformed
         //create timer if it doesn't exist.  If it does exist, turn it on!
         System.out.println("Run/Pause Button Pressed");
-        if (active==false) {
-            if (timmy==null) {
-              timmy=new Timer(stepDelay,this);
-              timmy.setInitialDelay(100); 
-              timmy.setDelay(stepDelay);
+        if (active == false) {
+            if (timmy == null) {
+                timmy = new Timer(stepDelay, this);
+                timmy.setInitialDelay(100);
+                timmy.setDelay(stepDelay);
             }
-            
+
             timmy.start();
-            active=true;
+            active = true;
             jButtonRun.setText("Pause...");
-        }
-        else { //turn timer off
-            active=false;
+        } else { //turn timer off
+            active = false;
             timmy.stop();
             jButtonRun.setText("Run...");
         }
@@ -670,27 +679,28 @@ public class Gridder extends javax.swing.JFrame
 
     private void jSliderDelayStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderDelayStateChanged
         // TODO add your handling code here:
-        stepDelay=jSliderDelay.getValue();
-        if (stepDelay==0) {
-            stepDelay=1;
+        stepDelay = jSliderDelay.getValue();
+        if (stepDelay == 0) {
+            stepDelay = 1;
         }
-        if (timmy!=null)
+        if (timmy != null)
             timmy.setDelay(stepDelay);
     }//GEN-LAST:event_jSliderDelayStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Random rand = new Random();
         for (int i = 0; i < 100; i++) {
-            grid[rand.nextInt(gridCount)][rand.nextInt(gridCount)]=1;
+            grid[rand.nextInt(gridCount)][rand.nextInt(gridCount)] = 1;
         }
         System.out.println("1");
         draw();
     }//GEN-LAST:event_jButton1ActionPerformed
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Random rand = new Random();
         int column = rand.nextInt(gridCount);
         for (int i = 0; i < 100; i++) {
-            grid[column][i]=1;
+            grid[column][i] = 1;
         }
         System.out.println("2");
         draw();
@@ -700,13 +710,12 @@ public class Gridder extends javax.swing.JFrame
         clearGrid();
         for (int i = 0; i < 50; i++) {
             for (int n = 0; n < 100; n++) {
-                grid[n][i]=1;
+                grid[n][i] = 1;
             }
         }
         System.out.println("3");
         draw();
     }//GEN-LAST:event_jButton1ActionPerformed
-
 
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -719,47 +728,143 @@ public class Gridder extends javax.swing.JFrame
             }
         }
 
-        textInfo.setText(Integer.toString(count) );
+        textInfo.setText(Integer.toString(count));
         System.out.println("4");
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
+
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         System.out.println("5");
         clearGrid();
         for (int i = 0; i < 100; i++) {
-            grid[i][i]=1;
+            grid[i][i] = 1;
         }
         for (int i = 0; i < 100; i++) {
-            grid[99-i][i]=1;
+            grid[99 - i][i] = 1;
         }
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
+
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         System.out.println("6");
         for (int i = 0; i < 100; i++) {
             for (int n = 0; n < 100; n++) {
                 if (grid[n][i] == 1) {
-                    grid[n][i]=0;
-                }else{
-                    grid[n][i]=1;
+                    grid[n][i] = 0;
+                } else {
+                    grid[n][i] = 1;
                 }
             }
         }
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
+
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         System.out.println("7");
-
+        //create temp
+        int[][] temp = new int[100][100];
+        //copy contents of grid into temp
+        for (int row = 0; row < 100; row++) {
+            for (int col = 0; col < 100; col++) {
+                temp[col][row] = grid[col][row];
+            }
+        }
+        //scan grid and MAKE CHANGES TO TEMP, not grid!
+        //stop and think about WHY we don't want to change the original grid.
+        //note: I will only check rows/columns 1-98 so my code won't break when I hit
+        //end edge!
+        for (int row = 1; row < 99; row++) {
+            for (int col = 1; col < 99; col++) {
+                int count = 0;
+                if (grid[col][row - 1] == 1) {//check above
+                    count++;
+                }
+                if (grid[col][row + 1] == 1) {//check below
+                    count++;
+                }
+                if (grid[col - 1][row] == 1) { //check to the left
+                    count++;
+                }
+                if (grid[col + 1][row] == 1) {//check to the right
+                    count++;
+                }
+                if (grid[col + 1][row + 1] == 1) {//check to the above right
+                    count++;
+                }
+                if (grid[col + 1][row - 1] == 1) {//check to the below right
+                    count++;
+                }
+                if (grid[col - 1][row + 1] == 1) {//check to the above left
+                    count++;
+                }
+                if (grid[col - 1][row - 1] == 1) {//check to the below left
+                    count++;
+                }
+                if (count == 2) {//check if there are only two then fills in the square
+                    temp[col][row] = 1;
+                }
+            } //col
+        }//row
+        //and finally, make grid equal temp and draw
+        grid = temp;
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
+
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         System.out.println("8");
+        //create temp
+        int[][] temp = new int[100][100];
+        //copy contents of grid into temp
+        for (int row = 0; row < 100; row++) {
+            for (int col = 0; col < 100; col++) {
+                temp[col][row] = grid[col][row];
+            }
+        }
 
+        for (int row = 0; row < 100; row++) {
+            for (int col = 0; col < 100; col++) {
+                if (grid[col][row] == 1) {
+                    temp[col][row] = 0;
+                    if (col == 0) {
+                        int n = 100 - 1;
+                        temp[n][row] = 1;
+                    } else {
+                        temp[col - 1][row] = 1;
+                    }
+                }
+
+            } //col
+        }//row
+        //and finally, make grid equal temp and draw
+        grid = temp;
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
+
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         System.out.println("9");
+        //create temp
+        int[][] temp = new int[100][100];
+        //copy contents of grid into temp
+        for (int row = 0; row < 100; row++) {
+            for (int col = 0; col < 100; col++) {
+                temp[col][row] = grid[col][row];
+            }
+        }
 
+        for (int row = 0; row < 100; row++) {
+            for (int col = 0; col < 100; col++) {
+                if (grid[col][row] == 1) {
+                    temp[col][row] = 0;
+                    temp[row][col] = 1;
+                }
+
+        }
+
+    } //col
+    //row
+
+        //and finally, make grid equal temp and draw
+        grid = temp;
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
 
