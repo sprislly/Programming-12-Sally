@@ -687,6 +687,9 @@ public class Gridder extends javax.swing.JFrame
             timmy.setDelay(stepDelay);
     }//GEN-LAST:event_jSliderDelayStateChanged
 
+    /* Button 1
+    Selects 100 random squares within the grid and turns them white.
+    */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Random rand = new Random();
         for (int i = 0; i < 100; i++) {
@@ -696,6 +699,9 @@ public class Gridder extends javax.swing.JFrame
         draw();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /* Button 2
+    Selects a random column then sets all the squares in the column to white.
+    */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Random rand = new Random();
         int column = rand.nextInt(gridCount);
@@ -706,6 +712,9 @@ public class Gridder extends javax.swing.JFrame
         draw();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /* Button 3
+    Sets the entire top half of the grid to white and the entire bottom half to black.
+    */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         clearGrid();
         for (int i = 0; i < 50; i++) {
@@ -717,7 +726,9 @@ public class Gridder extends javax.swing.JFrame
         draw();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
+    /* Button 4
+    Counts the number of squares in the grid that are white
+    */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         int count = 0;
         for (int i = 0; i < 100; i++) {
@@ -733,6 +744,9 @@ public class Gridder extends javax.swing.JFrame
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    /* Button 5
+    Clears the grid and then create a white X.
+    */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         System.out.println("5");
         clearGrid();
@@ -745,6 +759,10 @@ public class Gridder extends javax.swing.JFrame
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    /* Button 6
+    Inverses the grid.
+    All the black squares become white, and all the white squares become black.
+    */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         System.out.println("6");
         for (int i = 0; i < 100; i++) {
@@ -759,6 +777,9 @@ public class Gridder extends javax.swing.JFrame
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    /* Button 7
+    Any black square touching TWO white squares will turn white.
+    */
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         System.out.println("7");
         //create temp
@@ -769,10 +790,7 @@ public class Gridder extends javax.swing.JFrame
                 temp[col][row] = grid[col][row];
             }
         }
-        //scan grid and MAKE CHANGES TO TEMP, not grid!
-        //stop and think about WHY we don't want to change the original grid.
-        //note: I will only check rows/columns 1-98 so my code won't break when I hit
-        //end edge!
+
         for (int row = 1; row < 99; row++) {
             for (int col = 1; col < 99; col++) {
                 int count = 0;
@@ -803,13 +821,17 @@ public class Gridder extends javax.swing.JFrame
                 if (count == 2) {//check if there are only two then fills in the square
                     temp[col][row] = 1;
                 }
-            } //col
-        }//row
-        //and finally, make grid equal temp and draw
+            }
+        }
+        //make grid equal temp and draw
         grid = temp;
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    /* Button 8
+    All the squares will move one position to the left.
+    The leftmost column will become the rightmost column.
+    */
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         System.out.println("8");
         //create temp
@@ -826,20 +848,22 @@ public class Gridder extends javax.swing.JFrame
                 if (grid[col][row] == 1) {
                     temp[col][row] = 0;
                     if (col == 0) {
-                        int n = 100 - 1;
-                        temp[n][row] = 1;
-                    } else {
+                        temp[99][row] = 1;
+                    }
+                    if(col != 0) {
                         temp[col - 1][row] = 1;
                     }
                 }
-
-            } //col
-        }//row
-        //and finally, make grid equal temp and draw
+            }
+        }
+        //make grid equal temp and draw
         grid = temp;
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    /* Button 9
+    Rotates the grid 90 degrees.
+    */
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         System.out.println("9");
         //create temp
@@ -851,19 +875,15 @@ public class Gridder extends javax.swing.JFrame
             }
         }
 
-        for (int row = 0; row < 100; row++) {
-            for (int col = 0; col < 100; col++) {
-                if (grid[col][row] == 1) {
-                    temp[col][row] = 0;
-                    temp[row][col] = 1;
-                }
-
-        }
+        for (int r = 0; r < 100; r++) {
+            for (int c = 0; c < 100; c++) {
+                temp[c][100 - 1 - r] = grid[r][c];
+            }
 
     } //col
     //row
 
-        //and finally, make grid equal temp and draw
+        //make grid equal temp and draw
         grid = temp;
         draw();
     }//GEN-LAST:event_jButton11ActionPerformed
