@@ -844,16 +844,20 @@ public class Gridder extends javax.swing.JFrame
         }
 
         for (int row = 0; row < 100; row++) {
-            for (int col = 0; col < 100; col++) {
-                if (grid[col][row] == 1) {
-                    temp[col][row] = 0;
-                    if (col == 0) {
-                        temp[99][row] = 1;
-                    }
-                    if(col != 0) {
-                        temp[col - 1][row] = 1;
-                    }
-                }
+            //copies the elements on the leftmost column.
+            int[] tmp = new int[1];
+            for (int i = 0; i < 1; i++) {
+                tmp[i] = grid[i][row];
+            }
+
+            //shifts one position to the left.
+            for (int col = 0; col < 100 - 1; col++) {
+                temp[col][row] = temp[col + 1][row];
+            }
+
+            //copies back the leftmost elements to put back on the rightmost column.
+            for (int i = 0; i < 1; i++) {
+                temp[i + (100 - 1)][row] = tmp[i];
             }
         }
         //make grid equal temp and draw
@@ -864,24 +868,23 @@ public class Gridder extends javax.swing.JFrame
     /* Button 9
     Rotates the grid 90 degrees.
     */
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        System.out.println("9");
-        //create temp
-        int[][] temp = new int[100][100];
-        //copy contents of grid into temp
-        for (int row = 0; row < 100; row++) {
-            for (int col = 0; col < 100; col++) {
-                temp[col][row] = grid[col][row];
-            }
-        }
-
-        for (int r = 0; r < 100; r++) {
-            for (int c = 0; c < 100; c++) {
-                temp[c][100 - 1 - r] = grid[r][c];
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_jButton11ActionPerformed
+            System.out.println("9");
+            //create temp
+            int[][] temp = new int[100][100];
+            //copy contents of grid into temp
+            for (int row = 0; row < 100; row++) {
+                for (int col = 0; col < 100; col++) {
+                    temp[col][row] = grid[col][row];
+                }
             }
 
-    } //col
-    //row
+            for (int row = 0; row < 100; row++) {
+                for (int col = 0; col < 100; col++) {
+                    temp[col][100 - 1 - row] = grid[row][col];
+                }
+
+            }
 
         //make grid equal temp and draw
         grid = temp;
