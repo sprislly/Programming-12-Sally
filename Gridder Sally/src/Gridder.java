@@ -806,16 +806,16 @@ public class Gridder extends javax.swing.JFrame
                 if (grid[col + 1][row] == 1) {//check to the right
                     count++;
                 }
-                if (grid[col + 1][row + 1] == 1) {//check to the above right
+                if (grid[col + 1][row - 1] == 1) {//check to the above right
                     count++;
                 }
-                if (grid[col + 1][row - 1] == 1) {//check to the below right
+                if (grid[col + 1][row + 1] == 1) {//check to the below right
                     count++;
                 }
-                if (grid[col - 1][row + 1] == 1) {//check to the above left
+                if (grid[col - 1][row - 1] == 1) {//check to the above left
                     count++;
                 }
-                if (grid[col - 1][row - 1] == 1) {//check to the below left
+                if (grid[col - 1][row + 1] == 1) {//check to the below left
                     count++;
                 }
                 if (count == 2) {//check if there are only two then fills in the square
