@@ -881,7 +881,7 @@ public class Gridder extends javax.swing.JFrame
 
             for (int row = 0; row < 100; row++) {
                 for (int col = 0; col < 100; col++) {
-                    temp[col][100 - 1 - row] = grid[row][col];
+                    temp[row][100 - 1 - col] = grid[col][row];
                 }
 
             }
