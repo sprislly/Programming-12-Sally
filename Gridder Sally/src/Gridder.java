@@ -843,19 +843,19 @@ public class Gridder extends javax.swing.JFrame
             }
         }
 
+        //copies the squares from the leftmost column.
         for (int row = 0; row < 100; row++) {
-            //copies the elements on the leftmost column.
             int[] tmp = new int[1];
             for (int i = 0; i < 1; i++) {
                 tmp[i] = grid[i][row];
             }
 
-            //shifts one position to the left.
+            //shifts the squares one position to the left.
             for (int col = 0; col < 100 - 1; col++) {
                 temp[col][row] = temp[col + 1][row];
             }
 
-            //copies back the leftmost elements to put back on the rightmost column.
+            //copies back the leftmost squares to put back on the rightmost column.
             for (int i = 0; i < 1; i++) {
                 temp[i + (100 - 1)][row] = tmp[i];
             }
