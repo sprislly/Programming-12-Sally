@@ -866,7 +866,7 @@ public class Gridder extends javax.swing.JFrame
     }//GEN-LAST:event_jButton11ActionPerformed
 
     /* Button 9
-    Rotates the grid 90 degrees.
+    Rotates the grid to the right 90 degrees.
     */
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_jButton11ActionPerformed
             System.out.println("9");
@@ -881,7 +881,7 @@ public class Gridder extends javax.swing.JFrame
 
             for (int row = 0; row < 100; row++) {
                 for (int col = 0; col < 100; col++) {
-                    temp[row][100 - 1 - col] = grid[col][row];
+                    temp[100 - 1 - row][col] = grid[col][row];
                 }
 
             }
