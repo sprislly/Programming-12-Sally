@@ -1,4 +1,4 @@
 package com.sally.database;
 
-public class FindFolders {
+public class Main {
 }
