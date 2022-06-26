@@ -1,11 +1,20 @@
 package com.example.finalprojectsally;
 
-public class UserInfo {
+public class User {
     String username;
     String password;
-    UserInfo(String username, String password){
+
+    User(String username, String password){
         this.username = username;
         this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setUsername(String username) {
@@ -16,3 +25,4 @@ public class UserInfo {
         this.password = password;
     }
 }
+

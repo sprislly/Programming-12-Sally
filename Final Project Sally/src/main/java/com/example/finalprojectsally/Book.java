@@ -1,35 +1,36 @@
 package com.example.finalprojectsally;
 
 public class Book {
+    String bookName;
     String author;
-    String title;
     Boolean available;
-    Book(String author, String title){
+    Book(String bookName, String author, Boolean available){
+        this.bookName = bookName;
         this.author = author;
-        this.title = title;
+        this.available = available;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public Boolean getAvailable() {
-        return available;
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
     }
 
     public void setAuthor(String author) {
         this.author = author;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public void setAvailable(Boolean available) {
         this.available = available;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public Boolean getAvailable() {
+        return available;
     }
 }
