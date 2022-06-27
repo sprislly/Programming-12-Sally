@@ -51,12 +51,16 @@ public class BookWindow {
     }
 
 
-
     public void addBookToUser(ActionEvent actionEvent) {
+        Book temp;
+        temp = bookList.getSelectionModel().getSelectedItem();
+        temp.setAvailable(false);
+
         /*
        String qu =  ("UPDATE MEMBER SET BOOKS=? WHERE USERNAME =?");
 
 */
+
     }
 
 }
