@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="forum">
+  <database-model serializer="dbm" dbms="DERBY" family-id="DERBY" format-version="4.38">
+    <root id="1">
+      <ServerVersion>10.15.2.0</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="APP">
+      <Current>1</Current>
+    </schema>
+    <schema id="3" parent="1" name="NULLID"/>
+    <schema id="4" parent="1" name="SQLJ"/>
+    <schema id="5" parent="1" name="SYS"/>
+    <schema id="6" parent="1" name="SYSCAT"/>
+    <schema id="7" parent="1" name="SYSCS_DIAG"/>
+    <schema id="8" parent="1" name="SYSCS_UTIL"/>
+    <schema id="9" parent="1" name="SYSFUN"/>
+    <schema id="10" parent="1" name="SYSIBM"/>
+    <schema id="11" parent="1" name="SYSPROC"/>
+    <schema id="12" parent="1" name="SYSSTAT"/>
+    <table id="13" parent="2" name="MEMBER"/>
+    <column id="14" parent="13" name="ID">
+      <DataType>VARCHAR(200)|12s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="15" parent="13" name="USERNAME">
+      <DataType>VARCHAR(200)|12s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="16" parent="13" name="PASSWORD">
+      <DataType>VARCHAR(200)|12s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="17" parent="13" name="BOOKS">
+      <DataType>VARCHAR(200)|12s</DataType>
+      <Position>4</Position>
+    </column>
+    <index id="18" parent="13" name="SQL220627005902870">
+      <ColNames>ID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+    </index>
+    <index id="19" parent="13" name="SQL220627005902871">
+      <ColNames>USERNAME</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+    </index>
+    <key id="20" parent="13" name="SQL220627005902870">
+      <ColNames>ID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>SQL220627005902870</UnderlyingIndexName>
+    </key>
+    <key id="21" parent="13" name="SQL220627005902871">
+      <ColNames>USERNAME</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <UnderlyingIndexName>SQL220627005902871</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>

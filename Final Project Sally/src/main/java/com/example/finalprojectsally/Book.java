@@ -10,6 +10,11 @@ public class Book {
         this.available = available;
     }
 
+    public boolean checkout(){
+        return false;
+
+    }
+
     public void setBookName(String bookName) {
         this.bookName = bookName;
     }
@@ -32,5 +37,10 @@ public class Book {
 
     public Boolean getAvailable() {
         return available;
+    }
+
+    @Override
+    public String toString() {
+        return bookName + " by " + author;
     }
 }

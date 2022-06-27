@@ -5,15 +5,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import java.io.IOException;
 
 public class Main extends Application {
-    Book moby = new Book("Moby Dick", "Moby Dick", Boolean.TRUE);
-    Book war = new Book("War and Peace", "Moby Dick", Boolean.TRUE);
-    Book hamlet = new Book("Hamlet", "William Shakespeare", Boolean.TRUE);
-    Book gatsby = new Book("The Great Gatsby", "Moby Dick", Boolean.TRUE);
-    Book ulysses = new Book("Ulysses", "Moby Dick", Boolean.TRUE);
-    Book potter = new Book("Harry Potter and the Sorcerer's Stone", "Moby Dick", Boolean.TRUE);
+    public static DatabaseHandler handler;
+    public static void addMember(String id, String userName, String pass, String books){
+        String qu = "INSERT INTO MEMBER VALUES (" +
+                "'" + id + "'," +
+                "'" + userName + "'," +
+                "'" + pass + "'," +
+                "'" + books + "')";
+        handler.execAction(qu);
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -24,6 +30,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        handler = new DatabaseHandler();
         launch();
-    }
+
+        }
 }
