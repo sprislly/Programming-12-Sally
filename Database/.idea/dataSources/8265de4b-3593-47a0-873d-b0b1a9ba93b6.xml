@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Apache Derby (Embedded) - forum">
+  <database-model serializer="dbm" dbms="DERBY" family-id="DERBY" format-version="4.38">
+    <root id="1">
+      <ServerVersion>10.15.2.0</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="APP">
+      <Current>1</Current>
+    </schema>
+    <schema id="3" parent="1" name="NULLID"/>
+    <schema id="4" parent="1" name="SQLJ"/>
+    <schema id="5" parent="1" name="SYS"/>
+    <schema id="6" parent="1" name="SYSCAT"/>
+    <schema id="7" parent="1" name="SYSCS_DIAG"/>
+    <schema id="8" parent="1" name="SYSCS_UTIL"/>
+    <schema id="9" parent="1" name="SYSFUN"/>
+    <schema id="10" parent="1" name="SYSIBM"/>
+    <schema id="11" parent="1" name="SYSPROC"/>
+    <schema id="12" parent="1" name="SYSSTAT"/>
+    <table id="13" parent="2" name="PEOPLE"/>
+    <table id="14" parent="2" name="SCHOOL"/>
+    <column id="15" parent="13" name="NUM">
+      <DataType>INTEGER|4s</DataType>
+      <DefaultExpression>AUTOINCREMENT: start 1 increment 1</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="16" parent="13" name="NAME">
+      <DataType>VARCHAR(200)|12s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="17" parent="13" name="PATH">
+      <DataType>VARCHAR(200)|12s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="18" parent="13" name="EXTENSION">
+      <DataType>VARCHAR(200)|12s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="19" parent="13" name="FILE_SIZE">
+      <DataType>VARCHAR(200)|12s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="20" parent="14" name="NUM">
+      <DataType>INTEGER|4s</DataType>
+      <DefaultExpression>AUTOINCREMENT: start 1 increment 1</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="21" parent="14" name="NAME">
+      <DataType>VARCHAR(200)|12s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="22" parent="14" name="PATH">
+      <DataType>VARCHAR(200)|12s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="23" parent="14" name="EXTENSION">
+      <DataType>VARCHAR(200)|12s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="24" parent="14" name="FILE_SIZE">
+      <DataType>VARCHAR(200)|12s</DataType>
+      <Position>5</Position>
+    </column>
+  </database-model>
+</dataSource>
