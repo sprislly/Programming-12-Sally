@@ -24,8 +24,7 @@ public class DatabaseHandler {
                 System.out.println("Table " + TABLE_NAME + " exists");
             } else {
                 String statement = "CREATE TABLE " + TABLE_NAME + " ("
-                        + "id varchar(200) primary key, \n"
-                        + "userName varchar(200) unique, \n"
+                        + "username varchar(200) primary key, \n"
                         + "password varchar(200), \n"
                         + "books varchar(200))";
                 System.out.println(statement);

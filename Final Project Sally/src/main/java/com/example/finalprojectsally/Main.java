@@ -12,10 +12,9 @@ import java.io.IOException;
 
 public class Main extends Application {
     public static DatabaseHandler handler;
-    public static void addMember(String id, String userName, String pass, String books){
+    public static void addMember(String username, String pass, String books){
         String qu = "INSERT INTO MEMBER VALUES (" +
-                "'" + id + "'," +
-                "'" + userName + "'," +
+                "'" + username + "'," +
                 "'" + pass + "'," +
                 "'" + books + "')";
         handler.execAction(qu);

@@ -18,42 +18,29 @@
     <schema id="11" parent="1" name="SYSPROC"/>
     <schema id="12" parent="1" name="SYSSTAT"/>
     <table id="13" parent="2" name="MEMBER"/>
-    <column id="14" parent="13" name="ID">
+    <column id="14" parent="13" name="USERNAME">
       <DataType>VARCHAR(200)|12s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="15" parent="13" name="USERNAME">
+    <column id="15" parent="13" name="PASSWORD">
       <DataType>VARCHAR(200)|12s</DataType>
       <Position>2</Position>
     </column>
-    <column id="16" parent="13" name="PASSWORD">
+    <column id="16" parent="13" name="BOOKS">
       <DataType>VARCHAR(200)|12s</DataType>
       <Position>3</Position>
     </column>
-    <column id="17" parent="13" name="BOOKS">
-      <DataType>VARCHAR(200)|12s</DataType>
-      <Position>4</Position>
-    </column>
-    <index id="18" parent="13" name="SQL220627005902870">
-      <ColNames>ID</ColNames>
+    <index id="17" parent="13" name="SQL220627025907110">
+      <ColNames>USERNAME</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <index id="19" parent="13" name="SQL220627005902871">
+    <key id="18" parent="13" name="SQL220627025907110">
       <ColNames>USERNAME</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-    </index>
-    <key id="20" parent="13" name="SQL220627005902870">
-      <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SQL220627005902870</UnderlyingIndexName>
-    </key>
-    <key id="21" parent="13" name="SQL220627005902871">
-      <ColNames>USERNAME</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <UnderlyingIndexName>SQL220627005902871</UnderlyingIndexName>
+      <UnderlyingIndexName>SQL220627025907110</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

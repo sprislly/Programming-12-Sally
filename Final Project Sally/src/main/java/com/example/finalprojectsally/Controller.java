@@ -30,13 +30,12 @@ public class Controller {
 
         String name = textName.getText();
         String pass = textPass.getText();
-        i++;
-            String id = String.valueOf(i);
+
         User temp = new User(textName.getText(), textPass.getText());
 
         String books = "";
 
-        Main.addMember(id, name, pass, books);
+        Main.addMember(name, pass, books);
         success.setText("You can now check out books under user: " + name);
 
 
