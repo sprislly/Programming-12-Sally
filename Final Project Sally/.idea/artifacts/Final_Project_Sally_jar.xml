@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Final Project Sally:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Final_Project_Sally_jar</output-path>
+    <root id="archive" name="Final Project Sally.jar">
+      <element id="module-output" name="Final Project Sally" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/18-ea+6/javafx-fxml-18-ea+6-mac.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/18-ea+6/javafx-graphics-18-ea+6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/18-ea+6/javafx-fxml-18-ea+6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/derby.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/derbyclient.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/18-ea+6/javafx-controls-18-ea+6-mac.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/18-ea+6/javafx-graphics-18-ea+6-mac.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/18-ea+6/javafx-controls-18-ea+6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/18-ea+6/javafx-base-18-ea+6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/18-ea+6/javafx-base-18-ea+6-mac.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
